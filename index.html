@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LightBack Consulting | Back-office help for growing trade businesses</title>
+  <meta name="description" content="LightBack Consulting helps contractors and trade businesses organize paperwork, job tracking, billing workflows, and flexible back-office support before they need a full-time hire." />
+  <meta property="og:title" content="LightBack Consulting" />
+  <meta property="og:description" content="Back-office help before you need a full-time hire." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&family=Source+Code+Pro:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #071b32;
+      --ink: #13243a;
+      --slate: #64748d;
+      --muted: #8190a6;
+      --line: #e5edf5;
+      --cream: #fbf7ee;
+      --gold: #f2b84b;
+      --amber: #d8922f;
+      --blue: #4a70ff;
+      --purple: #533afd;
+      --green: #16a765;
+      --white: #ffffff;
+      --shadow: rgba(50,50,93,0.25) 0px 30px 45px -30px, rgba(0,0,0,0.1) 0px 18px 36px -18px;
+      --soft-shadow: rgba(23,23,23,0.08) 0px 15px 35px 0px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      color: var(--ink);
+      background: var(--white);
+      font-feature-settings: "ss01";
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+
+    .notice {
+      background: #fff8df;
+      color: #7a530d;
+      border-bottom: 1px solid #f2d389;
+      font-size: 14px;
+      padding: 8px 0;
+    }
+    .notice strong { color: #614006; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255,255,255,.82);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(229,237,245,.85);
+    }
+    .nav {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--navy);
+    }
+    .mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--navy), #1e3760 50%, var(--blue));
+      display: grid;
+      place-items: center;
+      box-shadow: rgba(50,50,93,.22) 0 12px 24px -12px;
+      position: relative;
+      overflow: hidden;
+    }
+    .mark:before {
+      content: "";
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      background: radial-gradient(circle, rgba(242,184,75,.9), transparent 58%);
+      right: -38px;
+      top: -38px;
+    }
+    .mark svg { position: relative; z-index: 1; }
+    .brand-text { line-height: 1.0; }
+    .brand-name { font-size: 22px; letter-spacing: -0.35px; font-weight: 600; }
+    .brand-sub { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; margin-top: 4px; }
+    nav ul { display: flex; list-style: none; gap: 26px; padding: 0; margin: 0; align-items: center; }
+    nav a { text-decoration: none; color: var(--ink); font-size: 15px; font-weight: 400; }
+    nav a:hover { color: var(--purple); }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 6px;
+      padding: 11px 18px;
+      background: var(--purple);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 500;
+      box-shadow: rgba(83,58,253,.26) 0 18px 35px -18px;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+    .button:hover { transform: translateY(-1px); background: #4434d4; box-shadow: rgba(83,58,253,.34) 0 22px 42px -18px; }
+    .button.secondary { background: #fff; color: var(--purple); border: 1px solid #cdd5ff; box-shadow: none; }
+    .button.secondary:hover { background: #f8f7ff; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 86px 0 72px;
+      background:
+        radial-gradient(circle at 85% 12%, rgba(242,184,75,.24), transparent 30%),
+        linear-gradient(180deg, #ffffff 0%, #fbfdff 54%, #f7f9fc 100%);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.03fr .97fr;
+      gap: 54px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--purple);
+      background: #f4f2ff;
+      border: 1px solid #dad6ff;
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 22px;
+    }
+    .eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(242,184,75,.18); }
+    h1 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(42px, 6vw, 68px);
+      line-height: .98;
+      letter-spacing: -1.8px;
+      font-weight: 300;
+    }
+    .hero p.lead {
+      color: var(--slate);
+      font-size: 21px;
+      line-height: 1.45;
+      margin: 24px 0 28px;
+      max-width: 640px;
+      font-weight: 300;
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+    .microcopy { color: var(--muted); font-size: 14px; margin-top: 16px; }
+
+    .office-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 26px;
+      position: relative;
+    }
+    .office-card:before {
+      content: "";
+      position: absolute;
+      inset: 12px 12px auto auto;
+      width: 96px;
+      height: 96px;
+      background: radial-gradient(circle, rgba(242,184,75,.34), transparent 65%);
+      pointer-events: none;
+    }
+    .card-header { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 22px; }
+    .card-title { font-size: 22px; color: var(--navy); font-weight: 400; }
+    .status { color: #108c3d; background: rgba(21,190,83,.14); border: 1px solid rgba(21,190,83,.34); padding: 4px 9px; border-radius: 999px; font-size: 12px; }
+    .task-list { display: grid; gap: 12px; }
+    .task {
+      display: grid;
+      grid-template-columns: 34px 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 13px 14px;
+      border: 1px solid #edf2f7;
+      border-radius: 10px;
+      background: #fff;
+    }
+    .check {
+      width: 34px; height: 34px; border-radius: 9px;
+      display: grid; place-items: center;
+      background: #f2f5ff; color: var(--purple);
+    }
+    .task strong { display: block; color: var(--navy); font-size: 15px; }
+    .task span { display: block; color: var(--muted); font-size: 13px; margin-top: 2px; }
+    .time { font-family: 'Source Code Pro', monospace; color: var(--amber); font-size: 12px; }
+    .relief {
+      margin-top: 18px;
+      padding: 18px;
+      background: linear-gradient(135deg, #071b32, #1c3460);
+      color: #fff;
+      border-radius: 12px;
+      display: grid;
+      gap: 6px;
+    }
+    .relief strong { font-size: 24px; font-weight: 300; letter-spacing: -.35px; }
+    .relief span { color: rgba(255,255,255,.72); }
+
+    section { padding: 80px 0; }
+    .section-head { max-width: 760px; margin-bottom: 36px; }
+    .section-kicker { color: var(--purple); font-size: 14px; text-transform: uppercase; letter-spacing: 1.4px; font-weight: 600; margin-bottom: 10px; }
+    h2 { color: var(--navy); font-size: clamp(34px, 4vw, 48px); line-height: 1.05; margin: 0; letter-spacing: -1px; font-weight: 300; }
+    .section-head p { color: var(--slate); font-size: 19px; line-height: 1.45; font-weight: 300; }
+
+    .pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .pain-card, .service-card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 26px;
+      background: #fff;
+      box-shadow: rgba(23,23,23,.04) 0 8px 24px;
+    }
+    .pain-card .num { color: var(--gold); font-family: 'Source Code Pro', monospace; font-size: 13px; margin-bottom: 18px; }
+    .pain-card h3, .service-card h3 { margin: 0 0 10px; color: var(--navy); font-size: 24px; line-height: 1.1; font-weight: 400; letter-spacing: -.25px; }
+    .pain-card p, .service-card p { margin: 0; color: var(--slate); line-height: 1.5; font-size: 16px; }
+
+    .dark {
+      background: #121d35;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .dark:before { content:""; position:absolute; width:420px; height:420px; border-radius:50%; background:radial-gradient(circle, rgba(74,112,255,.34), transparent 62%); right:-180px; top:-170px; }
+    .dark .container { position: relative; }
+    .dark h2 { color: #fff; }
+    .dark .section-head p { color: rgba(255,255,255,.68); }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .dark .service-card { background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.14); box-shadow: none; }
+    .dark .service-card h3 { color: #fff; }
+    .dark .service-card p { color: rgba(255,255,255,.68); }
+    .service-icon { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; margin-bottom: 18px; background: rgba(242,184,75,.16); color: var(--gold); }
+
+    .about {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .portrait-card {
+      background: linear-gradient(160deg, var(--cream), #ffffff);
+      border: 1px solid #efe5d4;
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: var(--soft-shadow);
+    }
+    .initials {
+      width: 84px; height: 84px; border-radius: 24px;
+      background: var(--navy); color: var(--gold);
+      display: grid; place-items: center;
+      font-size: 32px; font-weight: 300; margin-bottom: 22px;
+    }
+    .portrait-card h3 { margin: 0; color: var(--navy); font-size: 28px; font-weight: 400; }
+    .portrait-card p { color: var(--slate); line-height: 1.5; }
+    .about-copy p { color: var(--slate); font-size: 18px; line-height: 1.6; margin-top: 0; }
+    .bullets { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
+    .bullet { display: flex; gap: 10px; color: var(--ink); background: #fbfdff; border: 1px solid var(--line); border-radius: 10px; padding: 12px; }
+    .bullet svg { color: var(--green); flex: 0 0 auto; margin-top: 3px; }
+
+    .cta {
+      padding: 72px 0;
+      background: linear-gradient(135deg, #fbf7ee, #ffffff 42%, #f3f6ff);
+    }
+    .cta-box {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 38px;
+      background: rgba(255,255,255,.82);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
+      align-items: center;
+    }
+    .cta h2 { font-size: clamp(32px, 4vw, 46px); }
+    .cta p { color: var(--slate); font-size: 18px; line-height: 1.5; margin: 14px 0 0; }
+
+    footer { padding: 34px 0; color: var(--muted); border-top: 1px solid var(--line); }
+    .footer-grid { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+    .disclaimer { max-width: 720px; font-size: 13px; line-height: 1.45; }
+
+    @media (max-width: 880px) {
+      nav ul { display: none; }
+      .hero-grid, .about, .cta-box { grid-template-columns: 1fr; }
+      .pain-grid, .services-grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 56px; }
+      .office-card { margin-top: 8px; }
+      .bullets { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="notice">
+    <div class="container"><strong>Draft concept site:</strong> contact details and formal business registration should be finalized before public promotion.</div>
+  </div>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="LightBack Consulting home">
+        <span class="mark" aria-hidden="true">
+          <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7.5 3.5h8.2c3 0 5.3 2.4 5.3 5.3 0 2.9-2.4 5.3-5.3 5.3H9.2" stroke="white" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M12.3 8.2 5 16.6h6.6l-1.2 5.1 7.4-8.6h-6.5l1-4.9Z" fill="#F2B84B"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">LightBack</span>
+          <span class="brand-sub">Consulting</span>
+        </span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <ul>
+          <li><a href="#problem">The problem</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About Courtney</a></li>
+          <li><a href="#contact" class="button">Start the conversation</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Field office support for growing trade businesses</div>
+          <h1>Get the weight of office work off your back.</h1>
+          <p class="lead">LightBack Consulting helps contractors and tradespeople organize paperwork, track jobs, clean up billing workflows, and add flexible back-office support before they’re ready for a full-time hire.</p>
+          <div class="hero-actions">
+            <a class="button" href="#contact">Book a free consultation</a>
+            <a class="button secondary" href="#services">See how LightBack helps</a>
+          </div>
+          <div class="microcopy">Built for electricians, plumbers, HVAC techs, handymen, and small service businesses.</div>
+        </div>
+        <div class="office-card" aria-label="Back office workflow preview">
+          <div class="card-header">
+            <div class="card-title">Office load this week</div>
+            <div class="status">Getting lighter</div>
+          </div>
+          <div class="task-list">
+            <div class="task">
+              <div class="check">✓</div>
+              <div><strong>Invoices tracked</strong><span>Open balances and follow-ups organized</span></div>
+              <div class="time">2.5h saved</div>
+            </div>
+            <div class="task">
+              <div class="check">✓</div>
+              <div><strong>Job folders cleaned up</strong><span>Photos, receipts, notes, permits, and customer details</span></div>
+              <div class="time">Ready</div>
+            </div>
+            <div class="task">
+              <div class="check">✓</div>
+              <div><strong>Simple workflow built</strong><span>From first call to estimate, job, invoice, and closeout</span></div>
+              <div class="time">Repeatable</div>
+            </div>
+          </div>
+          <div class="relief"><strong>Growth should feel lighter.</strong><span>Not like another full-time job after the workday ends.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="problem">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">The growth trap</div>
+          <h2>You’re making money in the field. The office work is stealing the rest of your day.</h2>
+          <p>For solo tradespeople and small crews, growth creates a painful choice: keep earning on the jobsite, or stop to handle estimates, invoices, callbacks, job notes, receipts, and follow-ups.</p>
+        </div>
+        <div class="pain-grid">
+          <article class="pain-card">
+            <div class="num">01</div>
+            <h3>Too busy to slow down</h3>
+            <p>The more jobs you win, the more admin piles up. Nights and weekends become paperwork catch-up time.</p>
+          </article>
+          <article class="pain-card">
+            <div class="num">02</div>
+            <h3>Not ready to hire</h3>
+            <p>A full-time office employee can mean payroll, onboarding, management, and complexity before the business is ready.</p>
+          </article>
+          <article class="pain-card">
+            <div class="num">03</div>
+            <h3>Software shouldn’t become the job</h3>
+            <p>LightBack keeps systems practical: simple tools, clean workflows, and organization that fits how the business actually runs.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark" id="services">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">How LightBack helps</div>
+          <h2>Flexible back-office support before you need a full-time hire.</h2>
+          <p>Bring Courtney in to consult, reorganize, build simple systems, or supplement the office side during busy seasons.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon">↯</div>
+            <h3>Office Reset</h3>
+            <p>A focused cleanup of paperwork, job folders, customer records, invoices, receipts, and the daily workflow that keeps slipping.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">＋</div>
+            <h3>Busy Season Backup</h3>
+            <p>Flexible administrative support when calls, jobs, billing, and follow-ups spike — without committing to a permanent employee.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">✓</div>
+            <h3>Systems Setup</h3>
+            <p>Simple, repeatable systems for estimates, invoices, scheduling, customer intake, vendor paperwork, and job closeout.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about">
+        <div class="portrait-card">
+          <div class="initials">CK</div>
+          <h3>Courtney Kirkpatrick</h3>
+          <p>Cocoa, Florida</p>
+          <p>Contracting business experience + paralegal-informed document organization.</p>
+        </div>
+        <div class="about-copy">
+          <div class="section-kicker">About the founder</div>
+          <h2>Practical help from someone who understands both field work and paperwork.</h2>
+          <p>Courtney Kirkpatrick founded LightBack Consulting for small business owners whose growth has started to feel heavy. After years helping run an electrical contracting business, she understands how quickly estimates, invoices, job records, customer communication, receipts, software decisions, and follow-ups can pile up.</p>
+          <p>Her paralegal education brings a disciplined, detail-oriented approach to document organization and workflow cleanup — while keeping the service practical, approachable, and built for real small businesses.</p>
+          <div class="bullets">
+            <div class="bullet"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="m4 10.5 3.5 3.5L16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Paperwork and document organization</span></div>
+            <div class="bullet"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="m4 10.5 3.5 3.5L16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Billing and follow-up workflows</span></div>
+            <div class="bullet"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="m4 10.5 3.5 3.5L16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Simple tools, not software headaches</span></div>
+            <div class="bullet"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="m4 10.5 3.5 3.5L16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Support during busy seasons and growth spurts</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contact">
+      <div class="container cta-box">
+        <div>
+          <h2>Is growth making your office work too heavy?</h2>
+          <p>Start with a short conversation about what’s piling up, what’s costing time, and where flexible support could make the business feel lighter.</p>
+        </div>
+        <div>
+          <a class="button" href="mailto:hello@lightbackconsulting.com?subject=LightBack%20Consulting%20Inquiry">Email LightBack</a>
+          <div class="microcopy">Replace this email with Courtney’s preferred address before launch.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>© <span id="year"></span> LightBack Consulting. Draft landing page.</div>
+      <div class="disclaimer">LightBack Consulting provides administrative and operational support. It does not provide legal advice, legal representation, tax advice, or employment-law advice.</div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
