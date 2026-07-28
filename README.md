@@ -6,7 +6,7 @@ Positioning:
 
 > Get LightBack: back-office help before you need a full-time hire.
 
-This is a static single-page site for contractors and growing trade businesses who need help organizing paperwork, workflows, billing follow-ups, and office support.
+This is a static single-page site for contractors and growing trade businesses who need real human help from people who understand blue-collar work, not another app or software headache.
 
 ## Before sharing broadly
 
