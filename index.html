@@ -171,6 +171,37 @@
     .hero-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
     .small-note { margin-top: 16px; color: var(--muted); font-size: 15px; }
 
+    .hero-visual { display: grid; gap: 22px; }
+    .hero-photo img { aspect-ratio: 4 / 5; max-height: 660px; }
+
+    .image-card {
+      margin: 0;
+      border: 2px solid var(--ink);
+      background: var(--paper-2);
+      box-shadow: 10px 10px 0 rgba(25,35,53,.12);
+      overflow: hidden;
+    }
+    .image-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+    .image-card.square img { aspect-ratio: 1 / 1; }
+    .image-card.wide img { aspect-ratio: 16 / 9; }
+    .image-card figcaption {
+      padding: 12px 14px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+      background: var(--paper-2);
+    }
+
+    .section-visual { margin-top: 28px; }
+    .services .image-card { border-color: rgba(255,255,255,.72); box-shadow: 10px 10px 0 rgba(0,0,0,.18); }
+    .services .image-card figcaption { background: rgba(255,255,255,.08); border-top-color: rgba(255,255,255,.22); color: rgba(255,255,255,.72); }
+    .solution-visual { margin: 4px 0 30px; max-width: 820px; }
+
     .brief-card {
       border: 2px solid var(--ink);
       background: var(--paper-2);
@@ -298,7 +329,7 @@
       .hero-layout, .split, .cta-box { grid-template-columns: 1fr; }
       .row, .service-line { grid-template-columns: 1fr; gap: 10px; }
       .service-line .label { order: -1; }
-      .brief-card { box-shadow: 6px 6px 0 rgba(25,35,53,.12); }
+      .brief-card, .image-card { box-shadow: 6px 6px 0 rgba(25,35,53,.12); }
     }
   </style>
 </head>
@@ -339,23 +370,26 @@
           <div class="small-note">Future home: <strong>getlightback.com</strong></div>
         </div>
 
-        <aside class="brief-card" aria-label="LightBack fit summary">
-          <h2>Not another app to babysit.</h2>
-          <p>Most tradespeople do not need a new dashboard, portal, or AI tool. They need someone who understands field work, asks the right questions, and helps get the back office moving again.</p>
-          <ul class="brief-list">
-            <li>Talk to a real person about what is actually piling up.</li>
-            <li>Get help before a full-time hire makes sense.</li>
-            <li>Use simple tools only where they make the work easier.</li>
-          </ul>
+        <aside class="hero-visual" aria-label="Contractor office paperwork visual">
+          <figure class="image-card hero-photo">
+            <img src="assets/images/hero-paperwork.webp" alt="Contractor paperwork, permits, folders, a calendar, and a calculator on a desk." width="1500" height="1500" />
+            <figcaption>The office side of the work, in plain view.</figcaption>
+          </figure>
         </aside>
       </div>
     </section>
 
     <section id="problem">
       <div class="container split">
-        <div class="section-head">
-          <div class="kicker">The issue</div>
-          <h2>Growth is good. The admin pile is the problem.</h2>
+        <div>
+          <div class="section-head">
+            <div class="kicker">The issue</div>
+            <h2>Growth is good. The admin pile is the problem.</h2>
+          </div>
+          <figure class="image-card section-visual">
+            <img src="assets/images/software-friction.webp" alt="Receipts, sticky notes, a phone, and a laptop spread across a contractor's desk." width="1500" height="1120" />
+            <figcaption>When every note, receipt, and follow-up lives in a different place.</figcaption>
+          </figure>
         </div>
         <div>
           <p class="problem-copy">A single electrician, plumber, HVAC tech, or handyman earns money in the field. But as the calls, jobs, invoices, and customer follow-ups grow, the office work starts competing with billable work.</p>
@@ -385,6 +419,11 @@
           <p>Start with a conversation. Find what is costing time. Clean it up. Put simple routines in place so the owner can stay in the field.</p>
         </div>
 
+        <figure class="image-card wide solution-visual">
+          <img src="assets/images/talk-it-through.webp" alt="Two people reviewing a job schedule and paperwork together at a desk." width="1500" height="1006" />
+          <figcaption>A real conversation comes before any system.</figcaption>
+        </figure>
+
         <div class="services-grid">
           <article class="service-line">
             <h3>Talk it through</h3>
@@ -407,10 +446,16 @@
 
     <section id="use-cases">
       <div class="container split">
-        <div class="section-head">
-          <div class="kicker">Use cases</div>
-          <h2>Where LightBack fits.</h2>
-          <p>Clean, practical support for the moments when growth starts creating office drag.</p>
+        <div>
+          <div class="section-head">
+            <div class="kicker">Use cases</div>
+            <h2>Where LightBack fits.</h2>
+            <p>Clean, practical support for the moments when growth starts creating office drag.</p>
+          </div>
+          <figure class="image-card section-visual">
+            <img src="assets/images/organized-folders.webp" alt="Contractor paperwork sorted into labeled folders for estimates, invoices, permits, receipts, and job notes." width="1500" height="1120" />
+            <figcaption>Less hunting. More knowing where things are.</figcaption>
+          </figure>
         </div>
         <div class="rows" aria-label="LightBack use cases">
           <div class="row">
@@ -444,6 +489,9 @@
     <section id="about">
       <div class="container split">
         <div class="about-card">
+          <figure class="image-card" style="box-shadow:none; margin-bottom:22px;">
+            <img src="assets/images/founder-desk.webp" alt="Organized office documents, job notes, invoices, and contractor paperwork on a wooden desk." width="1500" height="1120" />
+          </figure>
           <h3>Courtney Kirkpatrick</h3>
           <p>Cocoa, Florida</p>
           <p>Trade-business office experience, paralegal education, and a careful approach to documents, deadlines, records, and follow-through.</p>
