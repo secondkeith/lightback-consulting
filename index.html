@@ -154,7 +154,7 @@
     h1 {
       font-family: 'Libre Baskerville', Georgia, serif;
       font-size: clamp(42px, 6vw, 72px);
-      line-height: 1.02;
+      line-height: 1.11;
       margin: 0;
       letter-spacing: -.9px;
       max-width: 820px;
@@ -191,8 +191,9 @@
     .image-card figcaption {
       padding: 9px 11px;
       border-top: 1px solid var(--line);
-      color: var(--muted);
+      color: var(--ink);
       font-size: 13px;
+      font-weight: 600;
       background: var(--paper-2);
     }
 
@@ -205,7 +206,7 @@
     .about-card .image-card { width: 100%; }
     .about-card .image-card img { height: 180px; }
     .services .image-card { border-color: rgba(255,255,255,.72); box-shadow: 6px 6px 0 rgba(0,0,0,.16); }
-    .services .image-card figcaption { background: rgba(255,255,255,.08); border-top-color: rgba(255,255,255,.22); color: rgba(255,255,255,.72); }
+    .services .image-card figcaption { background: var(--paper-2); border-top-color: var(--line); color: var(--ink); }
 
     .brief-card {
       border: 2px solid var(--ink);
@@ -354,10 +355,10 @@
       </a>
       <nav aria-label="Primary navigation">
         <ul>
-          <li><a href="#problem">The problem</a></li>
-          <li><a href="#solution">Solution</a></li>
+          <li><a href="#problem">The issue</a></li>
+          <li><a href="#solution">The solution</a></li>
           <li><a href="#use-cases">Use cases</a></li>
-          <li><a href="#about">About Courtney</a></li>
+          <li><a href="#about">Why Courtney</a></li>
           <li><a href="#contact" class="button">Get LightBack</a></li>
         </ul>
       </nav>
@@ -380,7 +381,7 @@
 
         <aside class="hero-visual" aria-label="Contractor office paperwork visual">
           <figure class="image-card hero-photo">
-            <img src="assets/images/hero-paperwork.webp" alt="Contractor paperwork, permits, folders, a calendar, and a calculator on a desk." width="1500" height="1500" />
+            <img src="assets/images/founder-desk.webp" alt="Organized office documents, job notes, invoices, and contractor paperwork on a wooden desk." width="1500" height="1120" />
             <figcaption>The office side of the work, in plain view.</figcaption>
           </figure>
         </aside>
@@ -498,7 +499,7 @@
       <div class="container split">
         <div class="about-card">
           <figure class="image-card" style="box-shadow:none; margin-bottom:22px;">
-            <img src="assets/images/founder-desk.webp" alt="Organized office documents, job notes, invoices, and contractor paperwork on a wooden desk." width="1500" height="1120" />
+            <img src="assets/images/hero-paperwork.webp" alt="Contractor paperwork, permits, folders, a calendar, and a calculator on a desk." width="1500" height="1500" />
           </figure>
           <h3>Courtney Kirkpatrick</h3>
           <p>Cocoa, Florida</p>
